@@ -2,14 +2,8 @@ import { useEffect } from "react"
 
 export default function Feedback({feedbacks: {good, bad, neutral}, totalFeedback, positiveFeedback}) {
     useEffect(() => {
-        localStorage.setItem("good-feedbacks", good)
-    }, [good]);
-    useEffect(() => {
-        localStorage.setItem('neutral-feedback', neutral)
-    }, [neutral]);
-    useEffect(() => {
-        localStorage.setItem('bad-feedbacks', bad)
-    }, [bad]);
+           localStorage.setItem('feedbacks', JSON.stringify({ good, neutral, bad }));
+  }, [good, neutral, bad]);
     
     return (
         <div>
