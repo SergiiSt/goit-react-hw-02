@@ -1,17 +1,13 @@
-import { useEffect } from "react"
+import css from './Feedback.module.css'
 
-export default function Feedback({feedbacks: {good, bad, neutral}, totalFeedback, positiveFeedback}) {
-    useEffect(() => {
-           localStorage.setItem('feedbacks', JSON.stringify({ good, neutral, bad }));
-  }, [good, neutral, bad]);
-    
-    return (
-        <div>
-            <p>Good: {good}</p>
-            <p>Neutral: {neutral}</p>
-            <p>Bad: {bad}</p>
-            <p>Total: {totalFeedback}</p>
-            <p>Positive Feedback: {positiveFeedback} %</p>
-        </div>
+export default function Feedback({ feedbacks: { good, bad, neutral }, totalFeedback, positiveFeedback }) {
+return (
+        <ul className={css.list}>
+            <li className={css.listItem}>Good: {good}</li>
+            <li className={css.listItem}>Neutral: {neutral}</li>
+            <li className={css.listItem}>Bad: {bad}</li>
+            <li className={css.listItem}>Total: {totalFeedback}</li>
+            <li className={css.listItem}>Positive Feedback: {positiveFeedback} %</li>
+        </ul>
     )
 }
